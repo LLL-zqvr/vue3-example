@@ -1,13 +1,17 @@
 <template>
   <div class="app">
     <h1>这里是组件的结构，，倪浩啊~</h1>
+    <Person />
   </div>
 </template>
 
 <script lang="ts">
+import Person from "./components/Person.vue"; //要引入组件才能使用
+
 //Js 或ts
 export default {
   name: "App", //组件名
+  components: { Person }, ////注册组件
 };
 </script>
 
