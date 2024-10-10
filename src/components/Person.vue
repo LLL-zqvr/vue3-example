@@ -2,6 +2,8 @@
   <div class="person">
     <h2>姓名：{{ name }}</h2>
     <h2>年龄：{{ age }}</h2>
+    <button>修改名字</button>
+    <button>修改年龄</button>
     <button @click="showTel">查看联系方式</button>
   </div>
 </template>
