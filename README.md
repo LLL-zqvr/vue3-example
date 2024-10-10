@@ -10,7 +10,18 @@ VS Code
 Node.js ^20
 Vue ^3.4
 
+### Notes
+
+本人笔记在此~
+
+- [这里是 vit 的笔记](vite-note.md)
+- [这里是 vue3 的笔记](vue3-note.md)
+
 ### Update
+
+#### 2024/10/10
+
+编写了 Person 组件。
 
 #### 2024/10/5
 
