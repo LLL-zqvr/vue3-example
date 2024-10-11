@@ -11,6 +11,7 @@
 <script lang="ts">
 export default {
   name: "Person",
+  // 以下这些写法都是vue2的写法，属于选项式（配置式）API
   data() {
     return {
       name: "张三",
