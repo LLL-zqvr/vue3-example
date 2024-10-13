@@ -22,7 +22,7 @@ Vue ^3.4
 #### 2024/10/13
 
 - ` npm i vite-plugin-vue-setup-extend -D`安装插件，并添加，使得`<script lang="ts" setup name="1234">`中的 name 生效。如下：
-  ![img1](img\image1.png)
+  ![img1](./img/image1.png)
 
 #### 2024/10/10
 
