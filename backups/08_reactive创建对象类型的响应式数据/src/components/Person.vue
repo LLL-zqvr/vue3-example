@@ -8,27 +8,39 @@
       <li v-for="g in games" :key="g.id">{{ g.name }}</li>
     </ul>
     <button @click="changeFirstGame">修改第一游戏的名字</button>
+    <hr />
+    <h2>测试：{{ obj.a.b.c }}</h2>
+    <button @click="changeObj">测试</button>
   </div>
 </template>
 
 <script lang="ts" setup name="Person">
-import { ref } from "vue";
+import { reactive } from "vue";
 
 // 数据
 
-let car = ref({ brand: "奔驰", price: 100 });
-let games = ref([
+let car = reactive({ brand: "奔驰", price: 100 });
+let games = reactive([
   { id: "sfsdfs01", name: "王者荣耀" },
   { id: "sfsdfs02", name: "O神" },
   { id: "sfsdfs03", name: "崩铁" },
 ]);
-
+let obj = reactive({
+  a: {
+    b: {
+      c: 666,
+    },
+  },
+});
 // 方法
 function changePrice() {
-  car.value.price += 10;
+  car.price += 10;
 }
 function changeFirstGame() {
-  games.value[0].name = "碧蓝航线";
+  games[0].name = "碧蓝航线";
+}
+function changeObj() {
+  obj.a.b.c = 999;
 }
 </script>
 
