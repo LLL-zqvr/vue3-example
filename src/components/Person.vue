@@ -3,32 +3,24 @@
     <h2>一辆{{ car.brand }}车，价值{{ car.price }}</h2>
     <button @click="changePrice">修改汽车的价格</button>
     <hr />
-    <h2>游戏列表</h2>
-    <ul>
-      <li v-for="g in games" :key="g.id">{{ g.name }}</li>
-    </ul>
-    <button @click="changeFirstGame">修改第一游戏的名字</button>
+    <h2>当前求和为{{ sum }}</h2>
+    <button @click="changeSum">点我sum+1</button>
   </div>
 </template>
 
 <script lang="ts" setup name="Person">
-import { ref } from "vue";
+import { ref,reactive } from "vue";
 
 // 数据
 
-let car = ref({ brand: "奔驰", price: 100 });
-let games = ref([
-  { id: "sfsdfs01", name: "王者荣耀" },
-  { id: "sfsdfs02", name: "O神" },
-  { id: "sfsdfs03", name: "崩铁" },
-]);
-
+let car = reactive({ brand: "奔驰", price: 100 });
+let sum = ref(0);
 // 方法
 function changePrice() {
-  car.value.price += 10;
+  car.price += 10;
 }
-function changeFirstGame() {
-  games.value[0].name = "碧蓝航线";
+function changeSum() {
+  sum.value += 1;
 }
 </script>
 

@@ -19,6 +19,10 @@ Vue ^3.4
 
 ### Update
 
+#### 2024/10/14
+
+setting->extention->Auto Insert: Dot Value 勾选后当使用 ref 后 vscode 会自动补充`.value`
+
 #### 2024/10/13
 
 - ` npm i vite-plugin-vue-setup-extend -D`安装插件，并添加，使得`<script lang="ts" setup name="1234">`中的 name 生效。如下：
