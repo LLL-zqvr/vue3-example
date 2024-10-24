@@ -6,7 +6,6 @@
     <button @click="changeCar">修改汽车</button>
     <hr />
     <h2>当前求和为{{ sum }}</h2>
-    s
     <button @click="changeSum">点我sum+1</button>
   </div>
 </template>

@@ -6,7 +6,6 @@
     <button @click="changeCar">修改汽车</button>
     <hr />
     <h2>当前求和为{{ sum }}</h2>
-    s
     <button @click="changeSum">点我sum+1</button>
   </div>
 </template>
@@ -16,19 +15,22 @@ import { ref, reactive } from "vue";
 
 // 数据
 
-let car = ref({ brand: "奔驰", price: 100 });
+let car = reactive({ brand: "奔驰", price: 100 });
 let sum = ref(0);
 // 方法
 function changeBrand() {
-  car.value.brand = "宝马";
+  car.brand = "宝马";
 }
 function changeCar() {
-  //对ref来说，只要是.value，那一定是响应式的，无论是数据还是对象！
-  car.value = { brand: "奥拓", price: 1 };
+  //// car = {brand:'奥拓',price:1}这么写页面不更新
+  // car = reactive({brand:'奥拓',price:1})这么写页面不更新
+
+  //这个写法页面可以更新。后一个对象把前一个覆盖掉了
+  Object.assign(car, { brand: "奥拓", price: 1 });
 }
 
 function changePrice() {
-  car.value.price += 10;
+  car.price += 10;
 }
 function changeSum() {
   sum.value += 1;
