@@ -1,6 +1,6 @@
 # Vue3 笔记
 
-### 一些常用知识
+#### 一些常用知识
 
 - `Vite` 项目中，`index.html` 是项目的入口文件，在项目最外层。
 - 加载`index.html`后，`Vite` 解析 `<script type="module" src="xxx">` 指向的`JavaScript`。
@@ -31,22 +31,28 @@
 
 #### 2024/11/13
 
+1. ```
+     let person = reactive({
+       name: "张三",
+       age: 18,
+     });
+     let { name, age } = toRefs(person);
+   ```
+
+   toRefs 将 person 中的所有 value 都能解构取出来并变成响应式数据。  
+   `let nl = toRef(person,'age')`这是取 person 对象中的 age 解构拿出来并变成响应式对象。
+
+2. `v-model`可双向绑定数据。如：
+
 ```
-let person = reactive({
-  name: "张三",
-  age: 18,
-});
-let { name, age } = toRefs(person);
-```
 
-toRefs 将 person 中的所有 value 都能解构取出来并变成响应式数据。
-
-`let nl = toRef(person,'age')`这是取 person 对象中的 age 解构拿出来并变成响应式对象。
-
-`v-model`可双向绑定数据。如：
-
-```
 姓：<input type="text" v-model="firstName" /><br />
 名：<input type="text" v-model="lastName" /><br />
 
 ```
+
+3. computed 计算属性
+
+### tips
+
+1. firstName.slice(0,1).toUpperCase() + firstName.slice() 将英文名第一个字母大写
