@@ -28,3 +28,25 @@
   > 1. 若需要一个基本类型的响应式数据，必须使用`ref`。
   > 2. 若需要一个响应式对象，层级不深，`ref`、`reactive`都可以。
   > 3. 若需要一个响应式对象，且层级较深，推荐使用`reactive`。
+
+#### 2024/11/13
+
+```
+let person = reactive({
+  name: "张三",
+  age: 18,
+});
+let { name, age } = toRefs(person);
+```
+
+toRefs 将 person 中的所有 value 都能解构取出来并变成响应式数据。
+
+`let nl = toRef(person,'age')`这是取 person 对象中的 age 解构拿出来并变成响应式对象。
+
+`v-model`可双向绑定数据。如：
+
+```
+姓：<input type="text" v-model="firstName" /><br />
+名：<input type="text" v-model="lastName" /><br />
+
+```
