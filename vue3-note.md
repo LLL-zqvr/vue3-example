@@ -53,6 +53,8 @@
 
 3. computed 计算属性
 
+####
+
 ### tips
 
 1. firstName.slice(0,1).toUpperCase() + firstName.slice() 将英文名第一个字母大写
