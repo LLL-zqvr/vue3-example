@@ -1,0 +1,6 @@
+- hooks 封装，将数据和相应的方法写在一起
+- 命名规范为：useXXX，如，如果都是狗相关，那就是 useDog
+- 底下这个网址，只要访问，就会随机获得一张狗的图片
+- https://dog.ceo/api/breed/pembroke/images/random
+- 通过访问得到了：https://images.dog.ceo/breeds/pembroke/n02113023_292.jpg
+- hook 中可以写数据，方法，钩子，计算属性

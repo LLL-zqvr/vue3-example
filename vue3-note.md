@@ -61,6 +61,8 @@ watch 监视的只有四个：一个函数，返回一个值；ref；一个响�
 
 生命周期
 
+路由就是一组 key-value 的对应关系
+
 ### tips
 
 1. firstName.slice(0,1).toUpperCase() + firstName.slice() 将英文名第一个字母大写
