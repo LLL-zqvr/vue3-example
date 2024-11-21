@@ -57,6 +57,10 @@
 
 watch 监视的只有四个：一个函数，返回一个值；ref；一个响应式对象（如 reactive）；或者由这些东西组成的数组
 
+#### 2024/11/22
+
+生命周期
+
 ### tips
 
 1. firstName.slice(0,1).toUpperCase() + firstName.slice() 将英文名第一个字母大写
