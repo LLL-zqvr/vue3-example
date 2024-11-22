@@ -7,35 +7,32 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/pages/Home.vue";
 import News from "@/pages/News.vue";
 import About from "@/pages/About.vue";
-import Detail from "@/pages/Detail.vue";
+//第二步：创建路由器
+//router是路由器，routers是被它管理的路由，是数组
 
 const router = createRouter({
   history: createWebHistory(), //路由器的工作模式
   routes: [
     //一个一个的路由规则
     {
+      //name:"路由名"
       name: "zhuye",
-
+      //   path: "路径",
+      //   component: 对应的组件,
       path: "/home",
       component: Home,
     },
     {
       name: "xinwen",
-
+      //   path: "路径",
+      //   component: 对应的组件,
       path: "/news",
       component: News,
-      children: [
-        {
-          name: "xijie",
-          // 子集不用写斜杠！！
-          path: "detail",
-          component: Detail,
-        },
-      ],
     },
     {
       name: "guanyu",
-
+      //   path: "路径",
+      //   component: 对应的组件,
       path: "/about",
       component: About,
     },

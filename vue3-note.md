@@ -31,16 +31,18 @@
 
 #### 2024/11/13
 
-1. ```
+1.
+
+```
      let person = reactive({
        name: "张三",
        age: 18,
      });
      let { name, age } = toRefs(person);
-   ```
+```
 
-   toRefs 将 person 中的所有 value 都能解构取出来并变成响应式数据。  
-   `let nl = toRef(person,'age')`这是取 person 对象中的 age 解构拿出来并变成响应式对象。
+toRefs 将 person 中的所有 value 都能解构取出来并变成响应式数据。  
+ `let nl = toRef(person,'age')`这是取 person 对象中的 age 解构拿出来并变成响应式对象。
 
 2. `v-model`可双向绑定数据。如：
 
@@ -59,15 +61,73 @@ watch 监视的只有四个：一个函数，返回一个值；ref；一个响�
 
 #### 2024/11/22
 
-生命周期
+- 生命周期
 
-路由就是一组 key-value 的对应关系,关键在于路径的变化
+- 路由就是一组 key-value 的对应关系,关键在于路径的变化
 
-1. 导航区
-2. 请来路由器
-3. 制定路由的具体规则（什么路径，对应着什么组件）
-4. 形成一个一个的【？？？.vue】Class.vue Subject.vue
+  1. 导航区
+  2. 请来路由器
+  3. 制定路由的具体规则（什么路径，对应着什么组件）
+  4. 形成一个一个的【？？？.vue】Class.vue Subject.vue
+
+- 路由组件：靠路由的规则渲染出来的。通常放在 pages 或 views 文件夹
+
+  ```
+  routes:[
+    {path:'/demo',component:Demo}
+  ]
+  ```
+
+- 一般组件：程序员亲手写标签实现的`<Demo/>`，一般组件通常存放在`components`文件夹。
+
+- 通过点击导航，视觉效果上“消失” 了的路由组件，默认是被**卸载**掉的，需要的时候再去**挂载**。
+
+- 路由工作模式
+
+  - `history`模式
+
+  优点：`URL`更加美观，路径中不带有`#`，更接近传统的网站`URL`。
+
+  缺点：后期项目上线，需要服务端配合处理路径问题，否则刷新会有`404`错误。
+
+  ```
+  const router = createRouter({
+    history: createWebHistory(), //history模式
+    /******/
+  });
+  ```
+
+- `hash`模式
+
+  优点：兼容性更好，因为不需要服务器端处理路径。
+
+  缺点：`URL`带有`#`不太美观，且在`SEO`优化方面相对较差。
+
+  ```
+  const router = createRouter({
+    history: createWebHashHistory(), //hash模式
+    /******/
+  });
+  ```
+
+- to 的两种写法
+
+  ```
+  <!-- 第一种：to的字符串写法 -->
+  <router-link active-class="active" to="/home">主页</router-link>
+  ```
+
+  ```
+  <!-- 第二种：to的对象写法 -->
+  <router-link active-class="active" :to="{path:'/home'}">Home</router-link>
+
+
+  ```
 
 ### tips
 
 1. firstName.slice(0,1).toUpperCase() + firstName.slice() 将英文名第一个字母大写
+
+```
+
+```

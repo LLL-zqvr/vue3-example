@@ -26,7 +26,6 @@ const router = createRouter({
       component: News,
       children: [
         {
-          name: "xijie",
           // 子集不用写斜杠！！
           path: "detail",
           component: Detail,

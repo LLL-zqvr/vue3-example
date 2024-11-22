@@ -9,6 +9,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    //下面两行加上后希望import的时候别再乱报错
+    "noImplicitAny": false,
+    "allowJs": true
   }
 }
