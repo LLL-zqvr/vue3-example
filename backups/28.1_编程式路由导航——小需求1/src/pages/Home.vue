@@ -8,11 +8,12 @@ import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-// onMounted(() => {
-//   setTimeout(() => {
-//     router.push("/news");
-//   }, 3000);
-// });
+onMounted(() => {
+  setTimeout(() => {
+    //在此处编写一段代码，让路由实现跳转
+    router.push("/news");
+  }, 3000);
+});
 </script>
 <style scoped>
 .home {
