@@ -1,6 +1,6 @@
 <template>
   <div class="count">
-    <h2>当前求和为：{{ countStore.sum }}</h2>
+    <h2>当前求和为：{{ sum }}</h2>
     <!-- 方法二：加上.number -->
     <!-- <select v-model.number="n"> -->
     <select v-model="n">
@@ -17,35 +17,19 @@
 </template>
 
 <script setup lang="ts" name="Count">
-import { reactive, ref } from "vue";
-//将在store中写的关于数的小仓库拿出来
-import { useCountStore } from "@/store/count";
-
-const countStore = useCountStore();
-// 以下两种方式都可以拿到state中的数据
-// console.log("@@@", countStore.sum);
-// console.log("@@@", countStore.$state.sum);
-
-/** 
- * 一个比较好玩的东西
-let obj = reactive({
-  a: 1,
-  b: 2,
-  c: ref(3),
-});
-console.log(obj.a);
-console.log(obj.b);
-// c用reactive包裹住了，所以c虽然是ref数据，但是其实已经被解包了，不用.value了
-console.log(obj.c); //得出3
-*/
-
+import { ref } from "vue";
 //数据
+let sum = ref(1);
 let n = ref(1);
 
 //方法
-function add() {}
+function add() {
+  sum.value += n.value;
+}
 
-function minus() {}
+function minus() {
+  sum.value -= n.value;
+}
 </script>
 
 <style scoped>
