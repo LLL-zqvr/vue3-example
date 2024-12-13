@@ -21,24 +21,8 @@ export const useCountStore = defineStore("count", {
     return {
       // 求和count的初始值,设定为6
       sum: 6,
-      school: "linda",
+      school: "琳达",
       address: "啦啦啦",
     };
-  },
-  getters: {
-    /**
-    bigSum(state) {
-      return state.sum * 10;
-    },
-     */
-    //上面的代码直接写成箭头函数
-    bigSum: (state) => state.sum * 10,
-    // upperSchool(state) {
-    //   return state.school.toUpperCase();
-    // },
-    // this指的是store，第一行的string是规定一下类型，不然它不知道返回的是字符串，会报错
-    upperSchool(): string {
-      return this.school.toUpperCase();
-    },
   },
 });

@@ -17,9 +17,11 @@ export const useTalkStore = defineStore("talk", {
   // 真正储存数据的地方
   state() {
     return {
-      // as string 断言，说明肯定是string，而不存在为空的可能（JSON.parse（）不能处理null）
-      //后面再用个空数组保底，保证最开始为空时程序也好使
-      talkList: JSON.parse(localStorage.getItem("talkList") as string) || [],
+      talkList: [
+        { id: "sfasfda01", title: "今天你有点怪，哪里怪？怪好看的！" },
+        { id: "asdfasd02", title: "草莓，蓝莓，蔓越莓，基拟态梅" },
+        { id: "sdfsdfs03", title: "心里给你留了块地，我的死心塌地" },
+      ],
     };
   },
 });

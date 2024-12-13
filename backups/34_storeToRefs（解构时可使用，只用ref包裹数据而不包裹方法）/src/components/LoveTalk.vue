@@ -16,15 +16,7 @@ import { storeToRefs } from "pinia";
 // use之后开发者工具就有相应的store了
 const talkStore = useTalkStore();
 const { talkList } = storeToRefs(talkStore);
-
-// mutate指的是本次修改信息，state是本次修改数据
-talkStore.$subscribe((mutate, state) => {
-  // console.log("talkStore里面保存的数据发生了变化", mutate, state);
-
-  //浏览器的本地存储
-  //localStorage里面存的都是字符串，如果不是字符串，底层会调toString（），如果是对象数组之类的话，可能会发生[object]之类的惨案，所以还要作处理（使用JSON.stringify()）
-  localStorage.setItem("talkList", JSON.stringify(state.talkList));
-});
+//数据
 
 //方法
 async function getLoveTalk() {

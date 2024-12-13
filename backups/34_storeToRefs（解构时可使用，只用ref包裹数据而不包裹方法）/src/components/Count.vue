@@ -1,7 +1,7 @@
 <template>
   <div class="count">
-    <h2>当前求和为：{{ countStore.sum }}</h2>
-    <h3>欢迎来到： {{ countStore.school }}，{{ countStore.address }}</h3>
+    <h2>当前求和为：{{ sum }}</h2>
+    <h3>欢迎来到： {{ school }}，{{ address }}</h3>
     <select v-model="n">
       <!-- 方法一 -->
       <!-- 加冒号，默认为表达式，而不是字符串 -->
@@ -16,32 +16,30 @@
 </template>
 
 <script setup lang="ts" name="Count">
-import { reactive, ref } from "vue";
+import { reactive, ref, toRefs } from "vue";
 //引入useCountStore
 import { useCountStore } from "@/store/count";
 //使用useCountStore,得到一个专门保存count相关的store
 const countStore = useCountStore();
+
+//解构，通过toRefs，但是不用，因为toRefs会将数据方法等全都转成ref类型，代价太大了
+// const { sum, school, address } = toRefs(countStore);
+
+//所以可以使用storeToRefs,只将store中的数据转成ref(只会关注store中的数据，不会对方法进行ref包裹),
+import { storeToRefs } from "pinia";
+const { sum, school, address } = storeToRefs(countStore);
 
 //数据
 let n = ref(1);
 
 //方法
 function add() {
-  // 第一种修改方式,直接摸到数据，这在vuex中是不被允许的，但是pinia支持
-  // countStore.sum += n.value;
-
-  //第二种修改方式，patch意思为碎片，表示的是只修改之中的相应属性，多个数据同时发生变化时，最好用patch，因为它是整合成patch一次性地修改，会减少修改次数
-  /**  countStore.$patch({
-    sum: 888,
-    school: "啊？",
-  });
-  */
-
-  //第三种，使用actions（自定义方法），另：需要在store中的count声明actions
   countStore.increment(n.value);
 }
 
-function minus() {}
+function minus() {
+  countStore.sum -= n.value;
+}
 </script>
 
 <style scoped>
