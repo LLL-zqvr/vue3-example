@@ -1,13 +1,16 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-//引入pinia
-import { createPinia } from "pinia";
+import {createApp} from 'vue'
+import App from './App.vue'
+import {createPinia} from 'pinia'
+import router from './router'
 
-const app = createApp(App);
+// 创建应用
+const app = createApp(App)
+// 创建pinia
+const pinia = createPinia()
 
-//第二步：创建pinia
-const pinia = createPinia();
-//第三步：安装pinia
-app.use(pinia);
-//挂载整个应用到app容器中
-app.mount("#app");
+// 安装插件
+app.use(pinia)
+// 安装路由器
+app.use(router)
+// 挂载应用
+app.mount('#app')
