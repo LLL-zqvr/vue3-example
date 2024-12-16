@@ -1,16 +1,16 @@
-import {createApp} from 'vue'
-import App from './App.vue'
-import {createPinia} from 'pinia'
-import router from './router'
-
+import { createApp } from "vue";
+import App from "./App.vue";
+import { createPinia } from "pinia";
+import router from "./router";
+import emitter from "./utils/emitter";
 // 创建应用
-const app = createApp(App)
+const app = createApp(App);
 // 创建pinia
-const pinia = createPinia()
+const pinia = createPinia();
 
 // 安装插件
-app.use(pinia)
+app.use(pinia);
 // 安装路由器
-app.use(router)
+app.use(router);
 // 挂载应用
-app.mount('#app')
+app.mount("#app");

@@ -7,10 +7,21 @@
 </template>
 
 <script setup lang="ts" name="Child2">
-import { ref, onUnmounted } from "vue";
-// 数据
+import { onMounted, ref } from "vue";
+import emitter from "@/utils/emitter";
+//数据
 let computer = ref("联想");
 let toy = ref("");
+
+//给emitter绑定send-toy事件
+emitter.on("send-toy", (value: any) => {
+  toy.value = value;
+});
+
+//在组件卸载时解绑send-toy事件
+onMounted(() => {
+  emitter.off("send-toy");
+});
 </script>
 
 <style scoped>
