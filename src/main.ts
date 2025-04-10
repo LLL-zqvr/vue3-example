@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import { createPinia } from "pinia";
 import router from "./router";
-import emitter from "./utils/emitter";
+// import emitter from "./utils/emitter";
 // 创建应用
 const app = createApp(App);
 // 创建pinia
